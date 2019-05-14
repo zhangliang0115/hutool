@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://hutool.cn/"><img src="https://hutool.cn/images/logo.jpg" width="400"></a>
+	<a href="https://hutool.cn/"><img src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/logo.jpg" width="400"></a>
 </p>
 <p align="center">
 	<strong>A set of tools that keep Java sweet.</strong>
@@ -17,6 +17,8 @@
 	<a target="_blank" href="https://travis-ci.org/looly/hutool">
 		<img src="https://travis-ci.org/looly/hutool.svg?branch=v4-master" ></img>
 	</a>
+	<a href="https://www.codacy.com/app/looly/hutool?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=looly/hutool&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/3e1b8a70248c4.5.9b7b0d01d60c6377"/>
+	</a>
 	<a target="_blank" href="https://gitter.im/hutool/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
 		<img src="https://badges.gitter.im/hutool/Lobby.svg" ></img>
 	</a>
@@ -26,12 +28,16 @@
 	<a target="_blank" href='https://github.com/looly/hutool'>
 		<img src="https://img.shields.io/github/stars/looly/hutool.svg?style=social" alt="github star"></img>
 	</a>
+	<a target="_blank" href='https://app.netlify.com/sites/hutool/deploys'>
+		<img src="https://api.netlify.com/api/v1/badges/7e0824f9-5f9a-4df0-89dd-b2fccfbeccb1/deploy-status" alt="netlify"></img>
+	</a>
 </p>
 <p align="center">
-	-- 主页：<a href="https://hutool.cn">https://hutool.cn/</a> --
+	-- 主页：<a href="https://hutool.cn">https://hutool.cn/</a> | <a href="https://www.hutool.club/">https://www.hutool.club/</a> --
 </p>
 <p align="center">
-	-- QQ群②：<a href="https://shang.qq.com/wpa/qunwpa?idkey=717c8e1444c2f3538ea37d792a19a23837cfc201e0d0de783e353b87009252eb">871141901</a> --
+	-- QQ群③：<a href="https://shang.qq.com/wpa/qunwpa?idkey=35764b2247c46ffebe28e4541e5b2af8f5dee5efcf47ceec69d21e4521aa8c75">555368316</a> --
+	-- QQ群④：<a href="https://shang.qq.com/wpa/qunwpa?idkey=309056e409a304a454c7ba250a10d38dd82b9b49cd0e1f180fedbde78b02ae0d">718802356</a> --
 </p>
 
 -------------------------------------------------------------------------------
@@ -72,7 +78,8 @@ Hutool是Hu + tool的自造词，谐音“糊涂”，寓意追求“万事都�
 
 ## 文档 
 
-[中文文档](https://www.hutool.cn/docs/#/)
+[中文文档](https://www.hutool.cn/docs/)
+[中文文档（备用）](https://www.hutool.club/docs/)
 
 [参考API](https://apidoc.gitee.com/loolly/hutool/)
 
@@ -87,21 +94,21 @@ Hutool是Hu + tool的自造词，谐音“糊涂”，寓意追求“万事都�
 <dependency>
     <groupId>cn.hutool</groupId>
     <artifactId>hutool-all</artifactId>
-    <version>4.5.1</version>
+    <version>4.5.9</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-compile 'cn.hutool:hutool-all:4.5.1'
+compile 'cn.hutool:hutool-all:4.5.9'
 ```
 
 ### 非Maven项目
 
 点击以下任一链接，下载`hutool-all-X.X.X.jar`即可：
 
-- [Maven中央库1](https://repo1.maven.org/maven2/cn/hutool/hutool-all/4.5.1/)
-- [Maven中央库2](http://repo2.maven.org/maven2/cn/hutool/hutool-all/4.5.1/)
+- [Maven中央库1](https://repo1.maven.org/maven2/cn/hutool/hutool-all/4.5.9/)
+- [Maven中央库2](http://repo2.maven.org/maven2/cn/hutool/hutool-all/4.5.9/)
 
 > 注意
 > Hutool只支持JDK7+，对应Android平台没有测试，部分方法并不支持。
@@ -113,6 +120,8 @@ compile 'cn.hutool:hutool-all:4.5.1'
 ```sh
 bin/hutool.sh install
 ```
+
+然后就可以使用Maven引入了。
 
 -------------------------------------------------------------------------------
 

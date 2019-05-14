@@ -59,7 +59,7 @@ public class DateUtilTest {
 		String formatTime = DateUtil.formatTime(date);
 		Assert.assertEquals("00:00:00", formatTime);
 	}
-
+	
 	@Test
 	public void beginAndEndTest() {
 		String dateStr = "2017-03-01 22:33:23";
@@ -76,7 +76,8 @@ public class DateUtilTest {
 	@Test
 	public void beginAndWeedTest() {
 		String dateStr = "2017-03-01 22:33:23";
-		Date date = DateUtil.parse(dateStr);
+		DateTime date = DateUtil.parse(dateStr);
+		date.setFirstDayOfWeek(Week.MONDAY);
 
 		// 一周的开始
 		Date beginOfWeek = DateUtil.beginOfWeek(date);
@@ -180,6 +181,12 @@ public class DateUtilTest {
 	}
 	
 	@Test
+	public void betweenTest2(){
+		long between = DateUtil.between(DateUtil.parse("2019-05-06 02:15:00"),DateUtil.parse("2019-05-06 02:20:00"), DateUnit.HOUR);
+		Assert.assertEquals(0, between);
+	}
+	
+	@Test
 	public void formatChineseDateTest() {
 		String formatChineseDate = DateUtil.formatChineseDate(DateUtil.parse("2018-02-24"), true);
 		Assert.assertEquals("二〇一八年二月二十四日", formatChineseDate);
@@ -258,14 +265,14 @@ public class DateUtilTest {
 	}
 
 	@Test
-	public void parseTest() throws ParseException {
+	public void parseTest() {
 		String time = "12:11:39";
 		DateTime parse = DateUtil.parse("12:11:39");
 		Assert.assertEquals(DateUtil.parseTimeToday(time).getTime(), parse.getTime());
 	}
 
 	@Test
-	public void parseTest2() throws ParseException {
+	public void parseTest2() {
 		// 转换时间与SimpleDateFormat结果保持一致即可
 		String birthday = "700403";
 		Date birthDate = DateUtil.parse(birthday, "yyMMdd");
@@ -275,11 +282,17 @@ public class DateUtilTest {
 	}
 
 	@Test
-	public void parseTest3() throws ParseException {
+	public void parseTest3() {
 		String dateStr = "2018-10-10 12:11:11";
 		Date date = DateUtil.parse(dateStr);
 		String format = DateUtil.format(date, DatePattern.NORM_DATETIME_PATTERN);
 		Assert.assertEquals(dateStr, format);
+	}
+	
+	@Test
+	public void parseTest4() throws ParseException {
+		String ymd = DateUtil.parse("2019-3-21 12:20:15", "yyyy-MM-dd").toString(DatePattern.PURE_DATE_PATTERN);
+		Assert.assertEquals("20190321", ymd);
 	}
 
 	@Test

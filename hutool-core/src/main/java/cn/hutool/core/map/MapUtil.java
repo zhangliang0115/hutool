@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,7 +16,6 @@ import java.util.TreeMap;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.convert.Convert;
-import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.lang.Editor;
 import cn.hutool.core.lang.Filter;
 import cn.hutool.core.util.ArrayUtil;
@@ -133,6 +133,16 @@ public class MapUtil {
 		}
 		return treeMap;
 	}
+	
+	/**
+	 * 创建键不重复Map
+	 * 
+	 * @return {@link IdentityHashMap}
+	 * @since 4.5.7
+	 */
+	public static <K, V> Map<K, V> newIdentityMap(int size){
+		return new IdentityHashMap<>(size);
+	}
 
 	/**
 	 * 创建Map<br>
@@ -148,11 +158,7 @@ public class MapUtil {
 		if (mapType.isAssignableFrom(AbstractMap.class)) {
 			return new HashMap<>();
 		} else {
-			try {
-				return (Map<K, V>) ReflectUtil.newInstance(mapType);
-			} catch (Exception e) {
-				throw new UtilException(e);
-			}
+			return (Map<K, V>) ReflectUtil.newInstance(mapType);
 		}
 	}
 
@@ -197,10 +203,11 @@ public class MapUtil {
 	 * </pre>
 	 * 
 	 * <pre>
-	 * Map&lt;Object, Object&gt; colorMap = MapUtil.of(new String[][] {{
+	 * Map&lt;Object, Object&gt; colorMap = MapUtil.of(new String[][] {
 	 *     {"RED", "#FF0000"},
 	 *     {"GREEN", "#00FF00"},
-	 *     {"BLUE", "#0000FF"}});
+	 *     {"BLUE", "#0000FF"}
+	 * });
 	 * </pre>
 	 * 
 	 * 参考：commons-lang
@@ -666,6 +673,18 @@ public class MapUtil {
 	 */
 	public static MapProxy createProxy(Map<?, ?> map) {
 		return MapProxy.create(map);
+	}
+	
+	/**
+	 * 创建Map包装类MapWrapper<br>
+	 * {@link MapWrapper}对Map做一次包装
+	 * 
+	 * @param map 被代理的Map
+	 * @return {@link MapWrapper}
+	 * @since 4.5.4
+	 */
+	public static <K, V> MapWrapper<K, V> wrap(Map<K, V> map) {
+		return new MapWrapper<K, V>(map);
 	}
 
 	// ----------------------------------------------------------------------------------------------- builder
